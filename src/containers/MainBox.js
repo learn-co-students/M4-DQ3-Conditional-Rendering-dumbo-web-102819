@@ -4,6 +4,32 @@ import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
 
+  state = {
+    clickedOn: 'profile'
+  }
+
+  changeClickedOn = (clicked) => {
+    this.setState({
+      clickedOn: clicked
+    })
+  }
+
+  detailsToDisplay = () => {
+    switch (this.state.clickedOn){
+      case 'profile':
+        return <Profile/>
+        break;
+      case 'photos':
+        return <Photos/>
+        break;
+      case 'cocktails':
+        return <Cocktails/>
+        break;
+      case 'pokemon':
+        return <Pokemon/>
+        break;
+    }
+  }
 
   render() {
 
@@ -13,12 +39,10 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
-
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar  clickedOn={this.state.clickedOn} changeClickedOn={this.changeClickedOn}/>
+        {this.detailsToDisplay()}
       </div>
     )
   }
