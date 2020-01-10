@@ -4,6 +4,22 @@ import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
 
+  state = {
+    // profile: Profile,
+    // photos: Photos,
+    // cocktails: Cocktails,
+    // pokemon: Pokemon,
+
+    buttonClicked: ''
+  }
+
+  handleClick = (clickEvent) => {
+    let userChoice = clickEvent.target.id
+
+    this.setState({
+      buttonClicked: userChoice
+    })
+  }
 
   render() {
 
@@ -13,12 +29,31 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    const detailsToDisplay = (buttonClicked) => {
+      switch (buttonClicked) {
+        case "profile":
+          // return this.state.profile()
+        return  <Profile />
+        case "photo":
+          // return this.state.photos()
+          return <Photos />
+
+        case "cocktail":
+          // return this.state.cocktails()
+          return <Cocktails />
+
+        case "pokemon":
+          // return this.state.pokemon
+          return <Pokemon />
+
+      }
+    }
+
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar handleClick={this.handleClick}/>
+        {detailsToDisplay(this.state.buttonClicked)}
       </div>
     )
   }
