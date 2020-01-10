@@ -52,7 +52,7 @@ class MainBox extends React.Component {
 
     return (
       <div>
-        <MenuBar handleClick={this.handleClick}/>
+        <MenuBar activeButton={this.state.buttonClicked} handleClick={this.handleClick}/>
         {detailsToDisplay(this.state.buttonClicked)}
       </div>
     )

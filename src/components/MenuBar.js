@@ -13,21 +13,29 @@ const MenuBar = (props) => {
 
   */
 
+  const classSetter = (id) => {
+      if (id === props.activeButton) {
+        return 'item active'
+    } else {
+      return 'item'
+    }
+  }
+
   return (
     <div className="ui four item menu">
-      <a onClick={props.handleClick} className="item active" id="profile">
+      <a onClick={props.handleClick} className={classSetter("profile")} id="profile">
         <i className="user large icon" id="profile"/>
       </a>
 
-      <a onClick={props.handleClick} className="item" id="photo">
+      <a onClick={props.handleClick} className={classSetter("photo")} id="photo">
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a onClick={props.handleClick} className="item" id="cocktail">
+      <a onClick={props.handleClick} className={classSetter("cocktail")} id="cocktail">
         <i className="cocktail large icon" id="cocktail"/>
       </a>
 
-      <a onClick={props.handleClick} className="item" id="pokemon"> 
+      <a onClick={props.handleClick} className={classSetter("pokemon")} id="pokemon">
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
     </div>
