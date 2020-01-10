@@ -5,7 +5,7 @@ import {Card, Button, Image, Loader} from 'semantic-ui-react'
 /*No need to code in here! These are merely presentational components.*/
 
 export const Profile = () => (
-  <Card fluid>
+  <Card fluid onClick={this.handleClick}>
     <Card.Content textAlign="center">
       <h3>Hi, my name is {userData.name}</h3>
       <h5>A little about me: </h5>
